@@ -1,6 +1,13 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits, Partials, Collection } = require('discord.js');
 const { checkLink } = require('./linkDetector');
+const express = require('express');
+
+// Thiết lập Web Server nhẹ để UptimeRobot ping mỗi 5 phút (chống Sleep trên Render)
+const app = express();
+app.get('/', (req, res) => res.send('AntiSpam Bot is running safely!'));
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`[Web Server] Đang giữ nhịp trên cổng ${port}`));
 
 const client = new Client({
     intents: [
