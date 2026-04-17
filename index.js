@@ -12,11 +12,12 @@ app.listen(port, () => console.log(`[Web Server] Đang giữ nhịp trên cổng
 
 const client = new Client({
     intents: [
-        GatewayIntentBits.Guilds,           // Bắt buộc cho mọi bot
-        GatewayIntentBits.GuildMessages,    // Anti-Spam Message
-        GatewayIntentBits.MessageContent,   // Đọc nội dung tin nhắn để lọc link
-        GatewayIntentBits.GuildMembers,     // Anti-Raid & Bắt sự kiện Join/Leave
-        GatewayIntentBits.GuildModeration,  // [QUAN TRỌNG] Cho phép đọc Audit Logs để làm Anti-Nuke
+        GatewayIntentBits.Guilds,              // Bắt buộc cho mọi bot
+        GatewayIntentBits.GuildMessages,       // Anti-Spam Message
+        GatewayIntentBits.MessageContent,      // Đọc nội dung tin nhắn để lọc link/ping
+        GatewayIntentBits.GuildMembers,        // Anti-Raid: Bắt sự kiện Join/Leave
+        GatewayIntentBits.GuildModeration,     // Bắt sự kiện Ban/Kick từ Audit Log
+        GatewayIntentBits.GuildExpressions,    // Theo dõi các thay đổi về Role/Emoji
     ],
     partials: [Partials.Message, Partials.Channel, Partials.GuildMember],
 });
