@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'ready',
+    name: 'clientReady',
     once: true,
     execute(client) {
         console.log(`[Khởi Động] Robot phòng thủ đã online dưới tên ${client.user.tag}!`);
